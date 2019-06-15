@@ -45,4 +45,16 @@ public class UserController {
         userData.put(user.getId(),user);
         return userData.get(user.getId());
     }
+
+    @PutMapping("/user/{id}")
+    public User updateUser(@PathVariable("id")Long id,@RequestBody User user){
+        User currentUser = userData.get(id);
+        System.out.println("Earlier user with id : "+id+ " is "+ currentUser);
+
+        userData.put(id,user);
+
+        return userData.get(id);
+    }
+
+
 }
