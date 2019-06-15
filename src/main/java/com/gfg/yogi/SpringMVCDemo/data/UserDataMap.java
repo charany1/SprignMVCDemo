@@ -1,10 +1,12 @@
 package com.gfg.yogi.SpringMVCDemo.data;
 
 import com.gfg.yogi.SpringMVCDemo.model.User;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class UserDataMap {
 
     public static Map<Long, User> userData = new HashMap<>();
