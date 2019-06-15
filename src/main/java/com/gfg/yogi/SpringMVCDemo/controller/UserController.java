@@ -5,10 +5,9 @@ import com.gfg.yogi.SpringMVCDemo.data.UserDataMap;
 import com.gfg.yogi.SpringMVCDemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -39,5 +38,11 @@ public class UserController {
     public User getUserById(@PathVariable("id") Long id){
         User user = userData.get(id);
         return user;
+    }
+
+    @PostMapping("/user")
+    public User createUser(@RequestBody User user){
+        userData.put(user.getId(),user);
+        return userData.get(user.getId());
     }
 }
